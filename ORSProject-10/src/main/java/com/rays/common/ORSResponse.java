@@ -20,6 +20,17 @@ public class ORSResponse {
 		this.success = success;
 	}
 
+	public ORSResponse(boolean success, String message) {
+		this.success = success;
+		addMessage(message);
+	}
+
+	public ORSResponse(boolean success, String message, Object value) {
+		this.success = success;
+		addMessage(message);
+		addData(value);
+	}
+
 	public boolean isSuccess() {
 		return success;
 	}
