@@ -1,5 +1,6 @@
 package com.rays.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -29,7 +30,29 @@ public class UserDAOImpl extends BaseDAOImpl<UserDTO> implements UserDAOInt {
 
 	@Override
 	protected List<Predicate> getWhereClause(UserDTO dto, CriteriaBuilder builder, Root<UserDTO> qRoot) {
-		return null;
-	}
 
+		List<Predicate> whereCondition = new ArrayList<Predicate>();
+
+		if (!isEmptyString(dto.getFirstName())) {
+
+			whereCondition.add(builder.like(qRoot.get("firstName"), dto.getFirstName() + "%"));
+		}
+		if (!isEmptyString(dto.getLoginId())) {
+
+			whereCondition.add(builder.equal(qRoot.get("loginId"), dto.getLoginId()));
+		}
+		if (!isZeroNumber(dto.getRoleId())) {
+
+			whereCondition.add(builder.equal(qRoot.get("roleId"), dto.getRoleId()));
+		}
+		if (isNotNull(dto.getDob())) {
+
+			whereCondition.add(builder.equal(qRoot.get("dob"), dto.getDob()));
+		}
+		if (!isEmptyString(dto.getStatus())) {
+
+			whereCondition.add(builder.equal(qRoot.get("status"), dto.getStatus()));
+		}
+		return whereCondition;
+	}
 }

@@ -12,45 +12,29 @@ import com.rays.common.BaseDTO;
 @Table(name = "st_timetable")
 public class TimeTableDTO extends BaseDTO {
 
-	@Column(name = "subject_id", length = 50)
-	private long subjectId;
-
-	@Column(name = "subject_name", length = 50)
-	private String subjectName;
-
 	@Column(name = "course_id", length = 50)
 	private long courseId;
 
 	@Column(name = "course_name", length = 50)
 	private String courseName;
 
+	@Column(name = "subject_id", length = 50)
+	private long subjectId;
+
+	@Column(name = "subject_name", length = 50)
+	private String subjectName;
+
 	@Column(name = "exam_date")
 	private Date examDate;
-
-	@Column(name = "description", length = 50)
-	private String description;
-
-	@Column(name = "semester", length = 30)
-	private String semester;
 
 	@Column(name = "exam_time", length = 50)
 	private String examTime;
 
-	public long getSubjectId() {
-		return subjectId;
-	}
+	@Column(name = "semester", length = 30)
+	private String semester;
 
-	public void setSubjectId(long subjectId) {
-		this.subjectId = subjectId;
-	}
-
-	public String getSubjectName() {
-		return subjectName;
-	}
-
-	public void setSubjectName(String subjectName) {
-		this.subjectName = subjectName;
-	}
+	@Column(name = "description", length = 50)
+	private String description;
 
 	public long getCourseId() {
 		return courseId;
@@ -68,6 +52,22 @@ public class TimeTableDTO extends BaseDTO {
 		this.courseName = courseName;
 	}
 
+	public long getSubjectId() {
+		return subjectId;
+	}
+
+	public void setSubjectId(long subjectId) {
+		this.subjectId = subjectId;
+	}
+
+	public String getSubjectName() {
+		return subjectName;
+	}
+
+	public void setSubjectName(String subjectName) {
+		this.subjectName = subjectName;
+	}
+
 	public Date getExamDate() {
 		return examDate;
 	}
@@ -76,12 +76,12 @@ public class TimeTableDTO extends BaseDTO {
 		this.examDate = examDate;
 	}
 
-	public String getDescription() {
-		return description;
+	public String getExamTime() {
+		return examTime;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setExamTime(String examTime) {
+		this.examTime = examTime;
 	}
 
 	public String getSemester() {
@@ -92,11 +92,11 @@ public class TimeTableDTO extends BaseDTO {
 		this.semester = semester;
 	}
 
-	public String getExamTime() {
-		return examTime;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setExamTime(String examTime) {
-		this.examTime = examTime;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 }

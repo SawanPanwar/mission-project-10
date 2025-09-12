@@ -13,6 +13,9 @@ public class MarksheetDTO extends BaseDTO {
 	@Column(name = "roll_no", length = 20)
 	protected String rollNo = null;
 
+	@Column(name = "student_id")
+	protected Long studentId;
+
 	@Column(name = "name", length = 50)
 	protected String name = null;
 
@@ -25,15 +28,20 @@ public class MarksheetDTO extends BaseDTO {
 	@Column(name = "maths")
 	protected Integer maths;
 
-	@Column(name = "student_id")
-	protected Long studentId;
-
 	public String getRollNo() {
 		return rollNo;
 	}
 
 	public void setRollNo(String rollNo) {
 		this.rollNo = rollNo;
+	}
+
+	public Long getStudentId() {
+		return studentId;
+	}
+
+	public void setStudentId(Long studentId) {
+		this.studentId = studentId;
 	}
 
 	public String getName() {
@@ -66,13 +74,5 @@ public class MarksheetDTO extends BaseDTO {
 
 	public void setMaths(Integer maths) {
 		this.maths = maths;
-	}
-
-	public Long getStudentId() {
-		return studentId;
-	}
-
-	public void setStudentId(Long studentId) {
-		this.studentId = studentId;
 	}
 }

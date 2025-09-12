@@ -38,9 +38,6 @@ public class BaseCtl<F extends BaseForm, T extends BaseDTO, S extends BaseServic
 		if (userContext == null) {
 			UserDTO dto = new UserDTO();
 			dto.setLoginId("root@sunilos.com");
-			dto.setFirstName("demo firstName");
-			dto.setLastName("demo lastName");
-			dto.setRoleId(1L);
 			userContext = new UserContext(dto);
 		}
 	}
@@ -60,6 +57,32 @@ public class BaseCtl<F extends BaseForm, T extends BaseDTO, S extends BaseServic
 				errors.put(e.getField(), e.getDefaultMessage());
 			});
 			res.addInputError(errors);
+		}
+		return res;
+	}
+
+	@PostMapping("/save")
+	public ORSResponse save(@RequestBody @Valid F form, BindingResult bindingResult) {
+
+		ORSResponse res = validate(bindingResult);
+
+		if (res.isSuccess() == false) {
+			return res;
+		}
+
+		try {
+			T dto = (T) form.getDto();
+
+			if (dto.getId() != null && dto.getId() > 0) {
+				baseService.update(dto, userContext);
+			} else {
+				baseService.add(dto, userContext);
+			}
+			res.addData(dto.getId());
+		} catch (Exception e) {
+			res.setSuccess(false);
+			res.addMessage(e.getMessage());
+			e.printStackTrace();
 		}
 		return res;
 	}
@@ -115,33 +138,6 @@ public class BaseCtl<F extends BaseForm, T extends BaseDTO, S extends BaseServic
 
 		res.addData(baseService.search(dto, pageNo, pageSize, userContext));
 
-		return res;
-	}
-
-	@PostMapping("/save")
-	public ORSResponse save(@Valid @RequestBody F form, BindingResult bindingResult) {
-
-		ORSResponse res = validate(bindingResult);
-
-		if (res.isSuccess() == false) {
-			return res;
-		}
-
-		try {
-			T dto = (T) form.getDto();
-
-			if (dto.getId() != null && dto.getId() > 0) {
-				baseService.update(dto, userContext);
-			} else {
-				System.out.println("before calling add of baseservice");
-				baseService.add(dto, userContext);
-			}
-			res.addData(dto.getId());
-		} catch (Exception e) {
-			res.setSuccess(false);
-			res.addMessage(e.getMessage());
-			e.printStackTrace();
-		}
 		return res;
 	}
 }

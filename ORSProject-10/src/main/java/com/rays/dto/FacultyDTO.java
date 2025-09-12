@@ -27,17 +27,17 @@ public class FacultyDTO extends BaseDTO {
 	@Column(name = "phone_no", length = 15)
 	private String phoneNo;
 
-	@Column(name = "qualification", length = 15)
-	private String qualification;
-
 	@Column(name = "email", length = 50)
 	private String email;
 
-	@Column(name = "subject_id", length = 50)
-	private long subjectId;
+	@Column(name = "qualification", length = 15)
+	private String qualification;
 
-	@Column(name = "subject_name", length = 50)
-	private String subjectName;
+	@Column(name = "college_id", length = 50)
+	private long collegeId;
+
+	@Column(name = "college_name", length = 50)
+	private String collegeName;
 
 	@Column(name = "course_id", length = 50)
 	private long courseId;
@@ -45,11 +45,11 @@ public class FacultyDTO extends BaseDTO {
 	@Column(name = "course_name", length = 50)
 	private String courseName;
 
-	@Column(name = "college_id", length = 50)
-	private long collegeId;
+	@Column(name = "subject_id", length = 50)
+	private long subjectId;
 
-	@Column(name = "college_name", length = 50)
-	private String collegeName;
+	@Column(name = "subject_name", length = 50)
+	private String subjectName;
 
 	public String getFirstName() {
 		return firstName;
@@ -91,14 +91,6 @@ public class FacultyDTO extends BaseDTO {
 		this.phoneNo = phoneNo;
 	}
 
-	public String getQualification() {
-		return qualification;
-	}
-
-	public void setQualification(String qualification) {
-		this.qualification = qualification;
-	}
-
 	public String getEmail() {
 		return email;
 	}
@@ -107,20 +99,28 @@ public class FacultyDTO extends BaseDTO {
 		this.email = email;
 	}
 
-	public long getSubjectId() {
-		return subjectId;
+	public String getQualification() {
+		return qualification;
 	}
 
-	public void setSubjectId(long subjectId) {
-		this.subjectId = subjectId;
+	public void setQualification(String qualification) {
+		this.qualification = qualification;
 	}
 
-	public String getSubjectName() {
-		return subjectName;
+	public long getCollegeId() {
+		return collegeId;
 	}
 
-	public void setSubjectName(String subjectName) {
-		this.subjectName = subjectName;
+	public void setCollegeId(long collegeId) {
+		this.collegeId = collegeId;
+	}
+
+	public String getCollegeName() {
+		return collegeName;
+	}
+
+	public void setCollegeName(String collegeName) {
+		this.collegeName = collegeName;
 	}
 
 	public long getCourseId() {
@@ -139,19 +139,19 @@ public class FacultyDTO extends BaseDTO {
 		this.courseName = courseName;
 	}
 
-	public long getCollegeId() {
-		return collegeId;
+	public long getSubjectId() {
+		return subjectId;
 	}
 
-	public void setCollegeId(long collegeId) {
-		this.collegeId = collegeId;
+	public void setSubjectId(long subjectId) {
+		this.subjectId = subjectId;
 	}
 
-	public String getCollegeName() {
-		return collegeName;
+	public String getSubjectName() {
+		return subjectName;
 	}
 
-	public void setCollegeName(String collegeName) {
-		this.collegeName = collegeName;
+	public void setSubjectName(String subjectName) {
+		this.subjectName = subjectName;
 	}
 }

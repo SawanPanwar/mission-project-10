@@ -17,7 +17,7 @@ public class UserRegistrationForm {
 
 	@Email
 	@NotEmpty(message = "please enter email")
-	private String login;
+	private String loginId;
 
 	@NotEmpty(message = "please enter password")
 	private String password;
@@ -25,12 +25,12 @@ public class UserRegistrationForm {
 	@NotNull(message = "Date of birth is required")
 	private Date dob;
 
+	@NotEmpty(message = "please enter gender")
+	private String gender;
+
 	@NotEmpty(message = "please enter phone")
 	@Pattern(regexp = "(^$|[0-9]{10})")
 	private String phone;
-
-	@NotEmpty(message = "please enter gender")
-	private String gender;
 
 	public String getFirstName() {
 		return firstName;
@@ -48,12 +48,12 @@ public class UserRegistrationForm {
 		this.lastName = lastName;
 	}
 
-	public String getLogin() {
-		return login;
+	public String getLoginId() {
+		return loginId;
 	}
 
-	public void setLogin(String login) {
-		this.login = login;
+	public void setLoginId(String loginId) {
+		this.loginId = loginId;
 	}
 
 	public String getPassword() {
@@ -72,19 +72,19 @@ public class UserRegistrationForm {
 		this.dob = dob;
 	}
 
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
 	public String getGender() {
 		return gender;
 	}
 
 	public void setGender(String gender) {
 		this.gender = gender;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 }

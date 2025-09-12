@@ -40,7 +40,6 @@ public abstract class BaseDAOImpl<T extends BaseDTO> implements BaseDAOInt<T> {
 		entityManager.persist(dto);
 
 		return dto.getId();
-
 	}
 
 	public void update(T dto, UserContext userContext) {

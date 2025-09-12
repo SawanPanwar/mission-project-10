@@ -13,9 +13,9 @@ import com.rays.common.BaseDTO;
 @Table(name = "st_user")
 public class UserDTO extends BaseDTO {
 
-	public static final String ACTIVE = "Activate";
-	public static final String DEACTIVE = "deactivate";
-	public static final String LOCKED = "locked";
+	public static final String ACTIVE = "Active";
+	public static final String DEACTIVE = "Deactive";
+	public static final String LOCKED = "Locked";
 
 	@Column(name = "first_name", length = 50)
 	private String firstName;
@@ -35,23 +35,26 @@ public class UserDTO extends BaseDTO {
 	@Column(name = "role_name", length = 50)
 	private String roleName = null;
 
-	@Column(name = "phone", length = 50)
-	private String phone;
-
-	@Column(name = "alternate_mobile", length = 50)
-	private String alternateMobile;
-
 	@Column(name = "dob")
 	private Date dob;
 
 	@Column(name = "gender", length = 10)
 	private String gender;
 
+	@Column(name = "phone", length = 50)
+	private String phone;
+
+	@Column(name = "alternate_mobile", length = 50)
+	private String alternateMobile;
+
 	@Column(name = "status", length = 20)
 	private String status;
 
 	@Column(name = "last_login")
 	private Timestamp lastLogin;
+
+	@Column(name = "unsucess_login")
+	private Integer unsucessfullLoginAttempt = 0;
 
 	@Column(name = "image_id")
 	private Long imageId;
@@ -104,22 +107,6 @@ public class UserDTO extends BaseDTO {
 		this.roleName = roleName;
 	}
 
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-	public String getAlternateMobile() {
-		return alternateMobile;
-	}
-
-	public void setAlternateMobile(String alternateMobile) {
-		this.alternateMobile = alternateMobile;
-	}
-
 	public Date getDob() {
 		return dob;
 	}
@@ -136,6 +123,22 @@ public class UserDTO extends BaseDTO {
 		this.gender = gender;
 	}
 
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getAlternateMobile() {
+		return alternateMobile;
+	}
+
+	public void setAlternateMobile(String alternateMobile) {
+		this.alternateMobile = alternateMobile;
+	}
+
 	public String getStatus() {
 		return status;
 	}
@@ -150,6 +153,14 @@ public class UserDTO extends BaseDTO {
 
 	public void setLastLogin(Timestamp lastLogin) {
 		this.lastLogin = lastLogin;
+	}
+
+	public Integer getUnsucessfullLoginAttempt() {
+		return unsucessfullLoginAttempt;
+	}
+
+	public void setUnsucessfullLoginAttempt(Integer unsucessfullLoginAttempt) {
+		this.unsucessfullLoginAttempt = unsucessfullLoginAttempt;
 	}
 
 	public Long getImageId() {

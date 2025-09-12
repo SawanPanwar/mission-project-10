@@ -7,9 +7,9 @@ public class UserContext {
 	private Long userId = 0L;
 	private String loginId = "root";
 	private String name = null;
-	private Long defaultRoleId = 0L;
+	private Long roleId = 0L;
 	private String roleName = "root";
-	
+
 	private UserDTO userDTO = null;
 
 	public UserContext() {
@@ -20,7 +20,7 @@ public class UserContext {
 		this.userId = dto.getId();
 		this.loginId = dto.getLoginId();
 		this.name = dto.getName();
-		this.defaultRoleId = dto.getRoleId();
+		this.roleId = dto.getRoleId();
 		this.roleName = dto.getRoleName();
 	}
 
@@ -48,12 +48,12 @@ public class UserContext {
 		this.name = name;
 	}
 
-	public Long getDefaultRoleId() {
-		return defaultRoleId;
+	public Long getRoleId() {
+		return roleId;
 	}
 
-	public void setDefaultRoleId(Long defaultRoleId) {
-		this.defaultRoleId = defaultRoleId;
+	public void setRoleId(Long roleId) {
+		this.roleId = roleId;
 	}
 
 	public String getRoleName() {

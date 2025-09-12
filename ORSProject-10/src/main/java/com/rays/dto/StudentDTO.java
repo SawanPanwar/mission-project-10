@@ -8,11 +8,6 @@ import javax.persistence.Table;
 
 import com.rays.common.BaseDTO;
 
-/**
- * Student POJO class. It is persistent object.
- * 
- */
-
 @Entity
 @Table(name = "st_student")
 public class StudentDTO extends BaseDTO {

@@ -2,7 +2,7 @@ package com.rays.common;
 
 public class BaseForm {
 
-	protected Long id = null;
+	protected Long id;
 
 	protected String createdBy;
 
@@ -20,11 +20,20 @@ public class BaseForm {
 
 	private String operation;
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	public BaseDTO getDto() {
 		return null;
 	}
 
 	public <T extends BaseDTO> T initDTO(T dto) {
+		System.out.println("id => base dto => " + id);
 		if (id != null && id > 0) {
 			dto.setId(id);
 		} else {
