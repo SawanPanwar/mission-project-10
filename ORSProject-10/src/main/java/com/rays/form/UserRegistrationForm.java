@@ -16,7 +16,7 @@ public class UserRegistrationForm {
 	private String lastName;
 
 	@Email
-	@NotEmpty(message = "please enter email")
+	@NotEmpty(message = "please enter login id")
 	private String loginId;
 
 	@NotEmpty(message = "please enter password")

@@ -10,7 +10,7 @@ import javax.persistence.MappedSuperclass;
 import org.hibernate.annotations.GenericGenerator;
 
 @MappedSuperclass
-public class BaseDTO {
+public abstract class BaseDTO {
 
 	@Id
 	@GeneratedValue(generator = "ncsPk")
@@ -29,6 +29,12 @@ public class BaseDTO {
 
 	@Column(name = "modified_datetime")
 	protected Timestamp modifiedDatetime;
+
+	public abstract String getUniqueKey();
+
+	public abstract String getUniqueValue();
+
+	public abstract String getLabel();
 
 	public Long getId() {
 		return id;

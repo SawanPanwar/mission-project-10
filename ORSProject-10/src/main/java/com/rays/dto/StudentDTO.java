@@ -99,4 +99,19 @@ public class StudentDTO extends BaseDTO {
 	public void setCollegeName(String collegeName) {
 		this.collegeName = collegeName;
 	}
+
+	@Override
+	public String getUniqueKey() {
+		return "enrolNo";
+	}
+
+	@Override
+	public String getUniqueValue() {
+		return enrolNo;
+	}
+
+	@Override
+	public String getLabel() {
+		return "Enroll No";
+	}
 }

@@ -14,6 +14,8 @@ public interface BaseServiceInt<T extends BaseDTO> {
 
 	public T findById(long id, UserContext userContext);
 
+	public T findByUniqueKey(String attribute, String val, UserContext userContext);
+
 	public List search(T dto, int pageNo, int pageSize, UserContext userContext);
 
 	public List search(T dto, UserContext userContext);

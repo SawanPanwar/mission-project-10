@@ -25,7 +25,7 @@ public class UserForm extends BaseForm {
 	@NotEmpty(message = "please enter password")
 	private String password;
 
-	@NotNull(message = "please enter roll")
+	@NotNull(message = "please enter role")
 	@Min(1)
 	private Long roleId;
 
@@ -34,17 +34,17 @@ public class UserForm extends BaseForm {
 	@NotNull(message = "Date of birth is required")
 	private Date dob;
 
-	@NotNull(message = "please enter gender")
+	@NotEmpty(message = "please enter gender")
 	private String gender;
 
 	@NotNull(message = "please enter phone")
 	@Pattern(regexp = "(^$|[0-9]{10})")
 	private String phone;
 
-	@NotNull(message = "please enter alternate phone")
+	@NotEmpty(message = "please enter alternate mobile")
 	private String alternateMobile;
 
-	@NotNull(message = "please enter status")
+	@NotEmpty(message = "please enter status")
 	private String status;
 
 	public String getFirstName() {
@@ -137,8 +137,6 @@ public class UserForm extends BaseForm {
 
 	@Override
 	public BaseDTO getDto() {
-		
-		System.out.println("iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii");
 
 		UserDTO dto = initDTO(new UserDTO());
 		dto.setFirstName(firstName);
@@ -152,6 +150,7 @@ public class UserForm extends BaseForm {
 		dto.setPhone(phone);
 		dto.setAlternateMobile(alternateMobile);
 		dto.setStatus(status);
+
 		return dto;
 	}
 }

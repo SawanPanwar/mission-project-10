@@ -75,4 +75,19 @@ public class MarksheetDTO extends BaseDTO {
 	public void setMaths(Integer maths) {
 		this.maths = maths;
 	}
+	
+	@Override
+	public String getUniqueKey() {
+		return "rollNo";
+	}
+
+	@Override
+	public String getUniqueValue() {
+		return rollNo;
+	}
+
+	@Override
+	public String getLabel() {
+		return "Roll No";
+	}
 }

@@ -154,4 +154,19 @@ public class FacultyDTO extends BaseDTO {
 	public void setSubjectName(String subjectName) {
 		this.subjectName = subjectName;
 	}
+
+	@Override
+	public String getUniqueKey() {
+		return "email";
+	}
+
+	@Override
+	public String getUniqueValue() {
+		return email;
+	}
+
+	@Override
+	public String getLabel() {
+		return "Email";
+	}
 }

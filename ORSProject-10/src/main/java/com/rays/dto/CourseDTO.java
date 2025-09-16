@@ -42,4 +42,19 @@ public class CourseDTO extends BaseDTO {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	@Override
+	public String getUniqueKey() {
+		return "name";
+	}
+
+	@Override
+	public String getUniqueValue() {
+		return name;
+	}
+
+	@Override
+	public String getLabel() {
+		return "Course Name";
+	}
 }

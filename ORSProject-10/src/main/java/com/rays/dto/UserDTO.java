@@ -174,4 +174,19 @@ public class UserDTO extends BaseDTO {
 	public String getName() {
 		return firstName + " " + lastName;
 	}
+
+	@Override
+	public String getUniqueKey() {
+		return "loginId";
+	}
+
+	@Override
+	public String getUniqueValue() {
+		return loginId;
+	}
+
+	@Override
+	public String getLabel() {
+		return "Login Id";
+	}
 }

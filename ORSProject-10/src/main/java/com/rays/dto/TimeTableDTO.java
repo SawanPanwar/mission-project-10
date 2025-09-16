@@ -99,4 +99,19 @@ public class TimeTableDTO extends BaseDTO {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+	@Override
+	public String getUniqueKey() {
+		return null;
+	}
+
+	@Override
+	public String getUniqueValue() {
+		return null;
+	}
+
+	@Override
+	public String getLabel() {
+		return null;
+	}
 }

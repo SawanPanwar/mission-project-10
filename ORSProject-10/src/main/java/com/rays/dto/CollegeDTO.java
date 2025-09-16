@@ -64,4 +64,19 @@ public class CollegeDTO extends BaseDTO {
 	public void setPhoneNo(String phoneNo) {
 		this.phoneNo = phoneNo;
 	}
+
+	@Override
+	public String getUniqueKey() {
+		return "name";
+	}
+
+	@Override
+	public String getUniqueValue() {
+		return name;
+	}
+
+	@Override
+	public String getLabel() {
+		return "College Name";
+	}
 }
