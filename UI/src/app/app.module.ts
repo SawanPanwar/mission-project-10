@@ -10,10 +10,18 @@ import { EndpointServiceService } from './endpoint-service.service';
 import { ServiceLocatorService } from './service-locator.service';
 import { AuthServiceService } from './auth-service.service';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './login/signup.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    SignupComponent,
+    NavbarComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
