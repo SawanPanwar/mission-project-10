@@ -1,2 +1,14 @@
-<h3>Hi, Guest</h3>
+<div *ngIf="isLogin()">
+    <h3><b>Hi, {{form.data.fname }} ( {{form.data.role}} )</b></h3>
+    <a [routerLink]="['/user']"><b>Add User</b></a> |
+    <a [routerLink]="['/userlist']"><b>User List</b></a> |
+    <a (click)="logout()">
+        <font color="blue"><b>Logout</b></font>
+    </a>
+</div>
+<div *ngIf="!isLogin()">
+    <h3>Hi, Guest</h3>
+    <a [routerLink]="['/dashboard']"><b>Dashboard</b></a> |
+    <a [routerLink]="['/login']"><b>Login</b></a>
+</div>
 <hr>

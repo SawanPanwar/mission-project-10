@@ -3,13 +3,13 @@ import { Router } from '@angular/router';
 import { HttpServiceService } from '../http-service.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-user',
+  templateUrl: './user.component.html',
+  styleUrls: ['./user.component.css']
 })
-export class LoginComponent {
+export class UserComponent {
 
-  endpoint = "http://localhost:8080/Auth/login";
+  endpoint = "http://localhost:8080/User/save";
 
   form: any = {
     error: false,
@@ -21,7 +21,7 @@ export class LoginComponent {
   constructor(private httpService: HttpServiceService, private router: Router) {
   }
 
-  signIn() {
+  save() {
     var _self = this;
     this.httpService.post(this.endpoint, this.form.data, function (res: any) {
 
@@ -36,20 +36,7 @@ export class LoginComponent {
       if (_self.form.error && res.result.inputerror) {
         _self.form.inputerror = res.result.inputerror;
       }
-
-      if (res.success) {
-        localStorage.setItem("loginId", res.result.loginId);
-        localStorage.setItem("role", res.result.role);
-        localStorage.setItem("fname", res.result.fname);
-        localStorage.setItem("lname", res.result.lname);
-        localStorage.setItem("userId", res.result.data.id);
-
-         _self.router.navigateByUrl('dashboard');
-      }
     });
   }
 
-  signUp() {
-    this.router.navigateByUrl('signup');
-  }
 }
