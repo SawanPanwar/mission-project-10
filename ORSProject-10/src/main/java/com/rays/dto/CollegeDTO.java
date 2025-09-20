@@ -79,4 +79,9 @@ public class CollegeDTO extends BaseDTO {
 	public String getLabel() {
 		return "College Name";
 	}
+
+	@Override
+	public String getValue() {
+		return name;
+	}
 }

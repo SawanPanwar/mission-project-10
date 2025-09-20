@@ -1,0 +1,93 @@
+<app-navbar></app-navbar>
+
+<div align="center">
+    <h1 align="center" style="margin-bottom: -15; color: navy">
+        Add Student
+    </h1>
+
+    <div style="height: 15px; margin-bottom: 12px">
+        <h3 align="center">
+            <font color="green"></font>
+        </h3>
+        <h3 align="center">
+            <font color="red"></font>
+        </h3>
+    </div>
+
+    <table>
+         <tr>
+            <th align="left">Enrol No.<span style="color: red">*</span></th>
+            <td><input type="text" name="enrolNo" [(ngModel)]="form.data.enrolNo" placeholder="Enter enrolNo ">
+            </td>
+            <td style="position: fixed; color: red;">{{form.inputerror.enrolNo}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">First Name<span style="color: red">*</span></th>
+            <td><input type="text" name="firstName" [(ngModel)]="form.data.firstName" placeholder="Enter First Name">
+            </td>
+            <td style="position: fixed; color: red;">{{form.inputerror.firstName}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">Last Name<span style="color: red">*</span></th>
+            <td><input type="text" name="lastName" [(ngModel)]="form.data.lastName" placeholder="Enter Last Name"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.lastName}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">Email Id<span style="color: red">*</span></th>
+            <td><input type="text" name="email" [(ngModel)]="form.data.email" placeholder="Enter Email ID"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.email}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">Date of Birth<span style="color: red">*</span></th>
+            <td><input type="date" name="dob" [(ngModel)]="form.data.dob" placeholder="Select Date of Birth"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.dob}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">Gender<span style="color: red">*</span></th>
+            <td>
+                <select name="gender" [(ngModel)]="form.data.gender">
+                    <option selected value="">------------Select------------</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </td>
+            <td style="position: fixed; color: red;">{{form.inputerror.gender}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">College<span style="color: red">*</span></th>
+            <td>
+                <select name="collegeId" [(ngModel)]="form.data.collegeId">
+                    <option selected value="">------------Select------------</option>
+                    <option *ngFor="let obj of form.preload.collegeList" [value]="obj.key">{{obj.value}}</option>
+                </select>
+            </td>
+            <td style="position: fixed; color: red;">{{form.inputerror.collegeId}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">Mobile No<span style="color: red">*</span></th>
+            <td><input type="text" name="phoneNo" [(ngModel)]="form.data.phoneNo" maxlength="10"
+                    placeholder="Enter Mobile No."></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.phoneNo}}</td>
+        </tr>
+
+        <tr>
+            <th></th>
+            <td></td>
+        </tr>
+
+        <tr>
+            <th></th>
+            <td align="left" colspan="2">
+                <button (click)="submit()">save</button> &nbsp;
+                <button>Reset</button>
+            </td>
+        </tr>
+    </table>
+</div>

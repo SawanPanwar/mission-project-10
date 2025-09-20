@@ -18,42 +18,33 @@
             <td><input type="text" name="firstName" [(ngModel)]="form.data.firstName" placeholder="Enter First Name">
             </td>
             <td style="position: fixed;">
-                <font color="red">{{form.inputerror.firstName}}</font>
-            </td>
+            <td style="position: fixed; color: red;">{{form.inputerror.firstName}}</td>
         </tr>
 
         <tr>
             <th align="left">Last Name<span style="color: red">*</span></th>
             <td><input type="text" name="lastName" [(ngModel)]="form.data.lastName" placeholder="Enter Last Name"></td>
-            <td style="position: fixed;">
-                <font color="red">{{form.inputerror.lastName}}</font>
-            </td>
+            <td style="position: fixed; color: red;">{{form.inputerror.lastName}}</td>
         </tr>
 
         <tr>
             <th align="left">Login Id<span style="color: red">*</span></th>
             <td><input type="text" name="loginId" [(ngModel)]="form.data.loginId" placeholder="Enter Email ID"></td>
-            <td style="position: fixed;">
-                <font color="red">{{form.inputerror.loginId}}</font>
-            </td>
+            <td style="position: fixed; color: red;">{{form.inputerror.loginId}}</td>
         </tr>
 
         <tr>
             <th align="left">Password<span style="color: red">*</span></th>
             <td><input type="password" name="password" [(ngModel)]="form.data.password" placeholder="Enter Password">
             </td>
-            <td style="position: fixed;">
-                <font color="red">{{form.inputerror.password}}</font>
-            </td>
+            <td style="position: fixed; color: red;">{{form.inputerror.password}}</td>
         </tr>
 
         <tr>
             <th align="left">Date of Birth<span style="color: red">*</span></th>
             <td><input type="date" name="dob" [(ngModel)]="form.data.dob" placeholder="Select Date of Birth"
                     style="width: 98%;"></td>
-            <td style="position: fixed;">
-                <font color="red">{{form.inputerror.dob}}</font>
-            </td>
+            <td style="position: fixed; color: red;">{{form.inputerror.dob}}</td>
         </tr>
 
         <tr>
@@ -65,9 +56,7 @@
                     <option value="Female">Female</option>
                 </select>
             </td>
-            <td style="position: fixed;">
-                <font color="red">{{form.inputerror.gender}}</font>
-            </td>
+            <td style="position: fixed; color: red;">{{form.inputerror.gender}}</td>
         </tr>
 
         <tr>
@@ -75,31 +64,24 @@
             <td>
                 <select name="roleId" [(ngModel)]="form.data.roleId">
                     <option selected value="">------------Select------------</option>
-                    <option value="1">Admin</option>
-                    <option value="2">Student</option>
+                    <option *ngFor="let obj of form.preload.roleList" [value]="obj.key">{{obj.value}}</option>
                 </select>
             </td>
-            <td style="position: fixed;">
-                <font color="red">{{form.inputerror.roleId}}</font>
-            </td>
+            <td style="position: fixed; color: red;">{{form.inputerror.roleId}}</td>
         </tr>
 
         <tr>
             <th align="left">Mobile No<span style="color: red">*</span></th>
             <td><input type="text" name="phone" [(ngModel)]="form.data.phone" maxlength="10"
                     placeholder="Enter Mobile No."></td>
-            <td style="position: fixed;">
-                <font color="red">{{form.inputerror.phone}}</font>
-            </td>
+            <td style="position: fixed; color: red;">{{form.inputerror.phone}}</td>
         </tr>
 
         <tr>
             <th align="left">Alternate Mobile<span style="color: red">*</span></th>
             <td><input type="text" name="alternateMobile" [(ngModel)]="form.data.alternateMobile" maxlength="10"
                     placeholder="Enter Mobile No."></td>
-            <td style="position: fixed;">
-                <font color="red">{{form.inputerror.alternateMobile}}</font>
-            </td>
+            <td style="position: fixed; color: red;">{{form.inputerror.alternateMobile}}</td>
         </tr>
 
         <tr>
@@ -111,15 +93,13 @@
                     <option value="Inactive">Inactive</option>
                 </select>
             </td>
-            <td style="position: fixed;">
-                <font color="red">{{form.inputerror.status}}</font>
-            </td>
+            <td style="position: fixed; color: red;">{{form.inputerror.status}}</td>
         </tr>
 
         <tr>
             <th></th>
             <td align="left" colspan="2">
-                <button (click)="save()">Sign Up</button> &nbsp;
+                <button (click)="submit()">save</button> &nbsp;
                 <button>Reset</button>
             </td>
         </tr>

@@ -1,42 +1,17 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { HttpServiceService } from '../http-service.service';
+import { ActivatedRoute } from '@angular/router';
+import { BaseCtl } from '../base.component';
+import { ServiceLocatorService } from '../service-locator.service';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
-export class UserComponent {
+export class UserComponent extends BaseCtl {
 
-  endpoint = "http://localhost:8080/User/save";
-
-  form: any = {
-    error: false,
-    message: '',
-    data: { id: null },
-    inputerror: {},
-  };
-
-  constructor(private httpService: HttpServiceService, private router: Router) {
-  }
-
-  save() {
-    var _self = this;
-    this.httpService.post(this.endpoint, this.form.data, function (res: any) {
-
-      _self.form.message = '';
-      _self.form.inputerror = {};
-
-      if (res.result.message) {
-        _self.form.message = res.result.message;
-      }
-
-      _self.form.error = !res.success;
-      if (_self.form.error && res.result.inputerror) {
-        _self.form.inputerror = res.result.inputerror;
-      }
-    });
+  constructor(public locator: ServiceLocatorService, route: ActivatedRoute) {
+    super(locator.endpoints.USER, locator, route);
   }
 
 }

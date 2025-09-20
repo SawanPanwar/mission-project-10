@@ -57,4 +57,9 @@ public class CourseDTO extends BaseDTO {
 	public String getLabel() {
 		return "Course Name";
 	}
+
+	@Override
+	public String getValue() {
+		return name;
+	}
 }

@@ -16,6 +16,14 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserComponent } from './user/user.component';
 import { UserListComponent } from './user/user-list.component';
+import { RoleComponent } from './role/role.component';
+import { StudentComponent } from './student/student.component';
+import { FacultyComponent } from './faculty/faculty.component';
+import { CourseComponent } from './course/course.component';
+import { SubjectComponent } from './subject/subject.component';
+import { MarksheetComponent } from './marksheet/marksheet.component';
+import { CollegeComponent } from './college/college.component';
+import { TimetableComponent } from './timetable/timetable.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +33,15 @@ import { UserListComponent } from './user/user-list.component';
     NavbarComponent,
     DashboardComponent,
     UserComponent,
-    UserListComponent
+    UserListComponent,
+    RoleComponent,
+    StudentComponent,
+    FacultyComponent,
+    CourseComponent,
+    SubjectComponent,
+    MarksheetComponent,
+    CollegeComponent,
+    TimetableComponent
   ],
   imports: [
     BrowserModule,

@@ -10,7 +10,7 @@ import javax.persistence.MappedSuperclass;
 import org.hibernate.annotations.GenericGenerator;
 
 @MappedSuperclass
-public abstract class BaseDTO {
+public abstract class BaseDTO implements DropdownList {
 
 	@Id
 	@GeneratedValue(generator = "ncsPk")
@@ -74,5 +74,9 @@ public abstract class BaseDTO {
 
 	public void setModifiedDatetime(Timestamp modifiedDatetime) {
 		this.modifiedDatetime = modifiedDatetime;
+	}
+
+	public String getKey() {
+		return String.valueOf(id);
 	}
 }
