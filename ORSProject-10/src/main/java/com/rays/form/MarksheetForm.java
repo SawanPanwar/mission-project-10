@@ -11,26 +11,26 @@ import com.rays.dto.MarksheetDTO;
 
 public class MarksheetForm extends BaseForm {
 
-	@NotEmpty(message = "please enter rollNo")
+	@NotEmpty(message = "Roll No is required")
 	protected String rollNo = null;
 
-	@NotNull(message = "please enter student name")
+	@NotNull(message = "Student Name is required")
 	@Min(1)
 	protected Long studentId;
 
 	protected String name = null;
 
-	@NotNull(message = "please enter physics number")
+	@NotNull(message = "Physics is required")
 	@Max(99)
 	@Min(0)
 	protected Integer physics;
 
-	@NotNull(message = "please enter chemistry number")
+	@NotNull(message = "Chemistry is required")
 	@Max(99)
 	@Min(0)
 	protected Integer chemistry;
 
-	@NotNull(message = "please enter maths number")
+	@NotNull(message = "Maths is required")
 	@Max(99)
 	@Min(0)
 	protected Integer maths;
@@ -88,6 +88,7 @@ public class MarksheetForm extends BaseForm {
 
 		MarksheetDTO dto = initDTO(new MarksheetDTO());
 		dto.setRollNo(rollNo);
+		dto.setName(name);
 		dto.setStudentId(studentId);
 		dto.setPhysics(physics);
 		dto.setChemistry(chemistry);

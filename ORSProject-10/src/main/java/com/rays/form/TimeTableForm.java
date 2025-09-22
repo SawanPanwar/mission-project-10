@@ -12,28 +12,28 @@ import com.rays.dto.TimeTableDTO;
 
 public class TimeTableForm extends BaseForm {
 
-	@NotNull(message = "please enter course")
+	@NotNull(message = "Course is required")
 	@Min(1)
-	private long courseId;
+	private Long courseId = 0L;
 
 	private String courseName;
 
-	@NotNull(message = "please enter subject")
+	@NotNull(message = "Subject is required")
 	@Min(1)
-	private long subjectId;
+	private Long subjectId = 0L;
 
 	private String subjectName;
 
-	@NotNull(message = "exam date is required")
+	@NotNull(message = "Exam Date is required")
 	private Date examDate;
 
-	@NotEmpty(message = "please enter exam time")
+	@NotEmpty(message = "Exam Time is required")
 	private String examTime;
 
-	@NotEmpty(message = "please enter semester")
+	@NotEmpty(message = "Semester is required")
 	private String semester;
 
-	@NotEmpty(message = "please enter description")
+	@NotEmpty(message = "Description is required")
 	private String description;
 
 	public long getCourseId() {

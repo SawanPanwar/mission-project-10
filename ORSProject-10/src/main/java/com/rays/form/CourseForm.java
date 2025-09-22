@@ -8,13 +8,13 @@ import com.rays.dto.CourseDTO;
 
 public class CourseForm extends BaseForm {
 
-	@NotEmpty(message = "please enter name")
+	@NotEmpty(message = "Name is required")
 	private String name;
 
-	@NotEmpty(message = "please enter duration")
+	@NotEmpty(message = "Duration is required")
 	private String duration;
 
-	@NotEmpty(message = "please enter description")
+	@NotEmpty(message = "Description is required")
 	private String description;
 
 	public String getName() {

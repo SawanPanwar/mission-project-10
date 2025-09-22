@@ -5,8 +5,7 @@ import { ServiceLocatorService } from '../service-locator.service';
 
 @Component({
   selector: 'app-marksheet',
-  templateUrl: './marksheet.component.html',
-  styleUrls: ['./marksheet.component.css']
+  templateUrl: './marksheet.component.html'
 })
 export class MarksheetComponent extends BaseCtl {
 

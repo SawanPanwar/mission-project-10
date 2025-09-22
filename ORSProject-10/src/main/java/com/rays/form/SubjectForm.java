@@ -10,16 +10,16 @@ import com.rays.dto.SubjectDTO;
 
 public class SubjectForm extends BaseForm {
 
-	@NotNull(message = "please enter course")
+	@NotNull(message = "Course is required")
 	@Min(1)
-	private long courseId;
+	private Long courseId = 0L;
 
 	private String courseName;
 
-	@NotEmpty(message = "please enter name")
+	@NotEmpty(message = "Name is required")
 	private String name;
 
-	@NotEmpty(message = "please enter description")
+	@NotEmpty(message = "Description is required")
 	private String description;
 
 	public long getCourseId() {

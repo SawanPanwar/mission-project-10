@@ -13,19 +13,19 @@ import com.rays.dto.UserDTO;
 
 public class UserForm extends BaseForm {
 
-	@NotEmpty(message = "please enter first name")
+	@NotEmpty(message = "First Name is required")
 	private String firstName;
 
-	@NotEmpty(message = "please enter last name")
+	@NotEmpty(message = "Last Name is required")
 	private String lastName;
 
-	@NotEmpty(message = "please enter loginId")
+	@NotEmpty(message = "Login Id is required")
 	private String loginId;
 
-	@NotEmpty(message = "please enter password")
+	@NotEmpty(message = "Password is required")
 	private String password;
 
-	@NotNull(message = "please enter role")
+	@NotNull(message = "Role is required")
 	@Min(1)
 	private Long roleId;
 
@@ -34,17 +34,17 @@ public class UserForm extends BaseForm {
 	@NotNull(message = "Date of birth is required")
 	private Date dob;
 
-	@NotEmpty(message = "please enter gender")
+	@NotEmpty(message = "Gender is required")
 	private String gender;
 
-	@NotNull(message = "please enter phone")
+	@NotNull(message = "Mobile No is required")
 	@Pattern(regexp = "(^$|[0-9]{10})")
 	private String phone;
 
-	@NotEmpty(message = "please enter alternate mobile")
+	@NotEmpty(message = "Alternate Mobile No is required")
 	private String alternateMobile;
 
-	@NotEmpty(message = "please enter status")
+	@NotEmpty(message = "Status is required")
 	private String status;
 
 	public String getFirstName() {

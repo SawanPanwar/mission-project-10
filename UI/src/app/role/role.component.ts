@@ -5,8 +5,7 @@ import { ServiceLocatorService } from '../service-locator.service';
 
 @Component({
   selector: 'app-role',
-  templateUrl: './role.component.html',
-  styleUrls: ['./role.component.css']
+  templateUrl: './role.component.html'
 })
 export class RoleComponent extends BaseCtl {
 

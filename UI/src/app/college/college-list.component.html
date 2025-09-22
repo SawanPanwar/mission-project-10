@@ -1,0 +1,62 @@
+<app-navbar></app-navbar>
+
+<div align="center">
+    <h1 align="center" style="margin-bottom: 5px; color: navy;">College List</h1>
+
+    <div style="height: 20px; margin-bottom: 10px; text-align: center;">
+        <h3 style="margin: 0; color: green;" *ngIf="!form.error && form.message">{{ form.message }}</h3>
+        <h3 style="margin: 0; color: red;" *ngIf="form.error && form.message">{{ form.message }}</h3>
+    </div>
+
+    <table style="width: 100%">
+        <tr>
+            <td align="center">
+                <label><b>College Name: </b></label>
+                <input type="text" name="name" [(ngModel)]="form.searchParams.name" placeholder="Enter College Name">&nbsp;
+
+                <button (click)="search()">search</button>
+                &nbsp;
+                <button (click)="reset()">reset</button>
+            </td>
+        </tr>
+    </table>
+    
+    <br>
+
+    <table border="1" style="width: 100%; border: groove;">
+        <tr style="background-color: #e1e6f1e3;">
+            <th><input type="checkbox" [(ngModel)]="isMasterSel" (change)="checkUncheckAll($event)"/></th>
+            <th>S.No</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>State</th>
+            <th>City</th>
+            <th>Phone</th>
+            <th>Edit</th>
+        </tr>
+
+        <tr align="center" *ngFor="let m of form.list; let i = index">
+            <td><input type="checkbox" #checkboxes (change)="checklistUpdate()" [id]="m.id" [value]="isMasterSel"></td>
+            <td>{{(form.pageNo*5)+i+ 1}}</td>
+            <td>{{m.name}}</td>
+            <td>{{m.address}}</td>
+            <td>{{m.state}}</td>
+            <td>{{m.city}}</td>
+            <td>{{m.phoneNo}}</td>
+            <td><a (click)="forward( '/college/' +  m.id)" style="cursor: pointer;">Edit</a></td>
+        </tr>
+    </table>
+
+    <br>
+
+    <table style="width: 100%">
+        <tr>
+            <td style="width: 25%"><button (click)="previous()" [disabled]="form.pageNo == 0">previous</button></td>
+            <td align="center" style="width: 25%"><button (click)="forward('/college')">new</button></td>
+            <td align="center" style="width: 25%"><button (click)="deleteMany()">delete</button></td>
+            <td style="width: 25%" align="right"><button (click)="next()" [disabled]="form.list.length < 5">next</button></td>
+        </tr>
+    </table>
+</div>
+
+<app-footer></app-footer>

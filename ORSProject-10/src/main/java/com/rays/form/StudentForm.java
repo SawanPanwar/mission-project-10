@@ -14,27 +14,27 @@ import com.rays.dto.StudentDTO;
 
 public class StudentForm extends BaseForm {
 
-	@NotEmpty(message = "please enter enroll")
+	@NotEmpty(message = "Enroll No is required")
 	private String enrolNo;
 
-	@NotEmpty(message = "please enter firstname")
+	@NotEmpty(message = "First Name is required")
 	private String firstName;
 
-	@NotEmpty(message = "please enter lastname")
+	@NotEmpty(message = "Last Name is required")
 	private String lastName;
 
 	@NotNull(message = "Date of birth is required")
 	private Date dob;
 
-	@NotNull(message = "please enter phone")
+	@NotNull(message = "Phone No is required")
 	@Pattern(regexp = "(^$|[0-9]{10})")
 	private String phoneNo;
 
-	@NotEmpty(message = "please enter email")
+	@NotEmpty(message = "Email ID is required")
 	@Email
 	private String email;
 
-	@NotNull(message = "please enter college")
+	@NotNull(message = "College Name is required")
 	@Min(1)
 	private Long collegeId;
 
@@ -116,7 +116,8 @@ public class StudentForm extends BaseForm {
 		dto.setPhoneNo(phoneNo);
 		dto.setEmail(email);
 		dto.setCollegeId(collegeId);
-		
+		dto.setCollegeName(collegeName);
+
 		return dto;
 	}
 }

@@ -43,7 +43,7 @@ public class SubjectDAOImpl extends BaseDAOImpl<SubjectDTO> implements SubjectDA
 
 		if (!isEmptyString(dto.getName())) {
 
-			whereCondition.add(builder.like(qRoot.get("subjectName"), dto.getName() + "%"));
+			whereCondition.add(builder.like(qRoot.get("name"), dto.getName() + "%"));
 		}
 
 		if (!isEmptyString(dto.getCourseName())) {

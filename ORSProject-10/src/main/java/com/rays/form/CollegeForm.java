@@ -10,19 +10,19 @@ import com.rays.dto.CollegeDTO;
 
 public class CollegeForm extends BaseForm {
 
-	@NotEmpty(message = "please enter name")
+	@NotEmpty(message = "Name is required")
 	private String name;
 
-	@NotEmpty(message = "please enter address")
+	@NotEmpty(message = "Address is required")
 	private String address;
 
-	@NotEmpty(message = "please enter state")
+	@NotEmpty(message = "State is required")
 	private String state;
 
-	@NotEmpty(message = "please enter city")
+	@NotEmpty(message = "City is required")
 	private String city;
 
-	@NotNull(message = "please enter phone")
+	@NotNull(message = "Phone No is required")
 	@Pattern(regexp = "(^$|[0-9]{10})")
 	private String phoneNo;
 

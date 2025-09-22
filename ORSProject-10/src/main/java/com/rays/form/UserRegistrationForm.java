@@ -9,26 +9,26 @@ import javax.validation.constraints.Pattern;
 
 public class UserRegistrationForm {
 
-	@NotEmpty(message = "please enter first name")
+	@NotEmpty(message = "First Name is required")
 	private String firstName;
 
-	@NotEmpty(message = "please enter last name")
+	@NotEmpty(message = "Last Name is required")
 	private String lastName;
 
 	@Email
-	@NotEmpty(message = "please enter login id")
+	@NotEmpty(message = "Login Id is required")
 	private String loginId;
 
-	@NotEmpty(message = "please enter password")
+	@NotEmpty(message = "Password is required")
 	private String password;
 
 	@NotNull(message = "Date of birth is required")
 	private Date dob;
 
-	@NotEmpty(message = "please enter gender")
+	@NotEmpty(message = "Gender is required")
 	private String gender;
 
-	@NotEmpty(message = "please enter phone")
+	@NotEmpty(message = "Mobile No is required")
 	@Pattern(regexp = "(^$|[0-9]{10})")
 	private String phone;
 

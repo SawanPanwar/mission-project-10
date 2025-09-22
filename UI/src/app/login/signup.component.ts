@@ -4,8 +4,7 @@ import { HttpServiceService } from '../http-service.service';
 
 @Component({
   selector: 'app-signup',
-  templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  templateUrl: './signup.component.html'
 })
 export class SignupComponent {
 
@@ -40,6 +39,6 @@ export class SignupComponent {
   }
 
   reset() {
-    this.router.navigate(['/signup']);
+    location.reload();
   }
 }

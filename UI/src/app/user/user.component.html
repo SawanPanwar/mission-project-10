@@ -1,23 +1,18 @@
 <app-navbar></app-navbar>
 
 <div align="center">
-    <h1 align="center" style="margin-bottom: -15; color: navy">Add User</h1>
+    <h1 *ngIf="!form.data.id" align="center" style="margin-bottom: 5px; color: navy">Add User</h1>
+    <h1 *ngIf="form.data.id>0" align="center" style="margin-bottom: 5px; color: navy">Update User</h1>
 
-    <div style="height: 15px; margin-bottom: 12px">
-        <h3 align="center">
-            <font color="green"></font>
-        </h3>
-        <h3 align="center">
-            <font color="red">{{form.message}}</font>
-        </h3>
+    <div style="height: 20px; margin-bottom: 10px; text-align: center;">
+        <h3 style="margin: 0; color: green;" *ngIf="!form.error && form.message">{{ form.message }}</h3>
+        <h3 style="margin: 0; color: red;" *ngIf="form.error && form.message">{{ form.message }}</h3>
     </div>
 
     <table>
         <tr>
             <th align="left">First Name<span style="color: red">*</span></th>
-            <td><input type="text" name="firstName" [(ngModel)]="form.data.firstName" placeholder="Enter First Name">
-            </td>
-            <td style="position: fixed;">
+            <td><input type="text" name="firstName" [(ngModel)]="form.data.firstName" placeholder="Enter First Name"></td>
             <td style="position: fixed; color: red;">{{form.inputerror.firstName}}</td>
         </tr>
 
@@ -29,29 +24,27 @@
 
         <tr>
             <th align="left">Login Id<span style="color: red">*</span></th>
-            <td><input type="text" name="loginId" [(ngModel)]="form.data.loginId" placeholder="Enter Email ID"></td>
+            <td><input type="text" name="loginId" [(ngModel)]="form.data.loginId" placeholder="Enter Login ID"></td>
             <td style="position: fixed; color: red;">{{form.inputerror.loginId}}</td>
         </tr>
 
         <tr>
             <th align="left">Password<span style="color: red">*</span></th>
-            <td><input type="password" name="password" [(ngModel)]="form.data.password" placeholder="Enter Password">
-            </td>
+            <td><input type="password" name="password" [(ngModel)]="form.data.password" placeholder="Enter Password"></td>
             <td style="position: fixed; color: red;">{{form.inputerror.password}}</td>
         </tr>
 
         <tr>
             <th align="left">Date of Birth<span style="color: red">*</span></th>
-            <td><input type="date" name="dob" [(ngModel)]="form.data.dob" placeholder="Select Date of Birth"
-                    style="width: 98%;"></td>
+            <td><input type="date" name="dob" [(ngModel)]="form.data.dob" [ngModel]="form.data.dob | date:'yyyy-MM-dd'" placeholder="Select Date of Birth" style="width: 97%;"></td>
             <td style="position: fixed; color: red;">{{form.inputerror.dob}}</td>
         </tr>
 
         <tr>
             <th align="left">Gender<span style="color: red">*</span></th>
             <td>
-                <select name="gender" [(ngModel)]="form.data.gender">
-                    <option selected value="">------------Select------------</option>
+                <select name="gender" [(ngModel)]="form.data.gender" style="width: 170px;">
+                    <option value="undefined">------------Select------------</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                 </select>
@@ -62,8 +55,8 @@
         <tr>
             <th align="left">Role<span style="color: red">*</span></th>
             <td>
-                <select name="roleId" [(ngModel)]="form.data.roleId">
-                    <option selected value="">------------Select------------</option>
+                <select name="roleId" [(ngModel)]="form.data.roleId" style="width: 170px;">
+                    <option value="undefined">------------Select------------</option>
                     <option *ngFor="let obj of form.preload.roleList" [value]="obj.key">{{obj.value}}</option>
                 </select>
             </td>
@@ -71,24 +64,22 @@
         </tr>
 
         <tr>
-            <th align="left">Mobile No<span style="color: red">*</span></th>
-            <td><input type="text" name="phone" [(ngModel)]="form.data.phone" maxlength="10"
-                    placeholder="Enter Mobile No."></td>
+            <th align="left">Mobile<span style="color: red">*</span></th>
+            <td><input type="text" name="phone" [(ngModel)]="form.data.phone" maxlength="10" placeholder="Enter Mobile No."></td>
             <td style="position: fixed; color: red;">{{form.inputerror.phone}}</td>
         </tr>
 
         <tr>
             <th align="left">Alternate Mobile<span style="color: red">*</span></th>
-            <td><input type="text" name="alternateMobile" [(ngModel)]="form.data.alternateMobile" maxlength="10"
-                    placeholder="Enter Mobile No."></td>
+            <td><input type="text" name="alternateMobile" [(ngModel)]="form.data.alternateMobile" maxlength="10" placeholder="Enter Alternate Mobile No."></td>
             <td style="position: fixed; color: red;">{{form.inputerror.alternateMobile}}</td>
         </tr>
 
         <tr>
             <th align="left">Status<span style="color: red">*</span></th>
             <td>
-                <select name="status" [(ngModel)]="form.data.status">
-                    <option selected value="">------------Select------------</option>
+                <select name="status" [(ngModel)]="form.data.status" style="width: 170px;">
+                    <option value="undefined">------------Select------------</option>
                     <option value="Active">Active</option>
                     <option value="Inactive">Inactive</option>
                 </select>
@@ -96,12 +87,16 @@
             <td style="position: fixed; color: red;">{{form.inputerror.status}}</td>
         </tr>
 
+        <tr></tr>
+
         <tr>
             <th></th>
             <td align="left" colspan="2">
                 <button (click)="submit()">save</button> &nbsp;
-                <button>Reset</button>
+                <button (click)="forward('/userlist')">list</button>
             </td>
         </tr>
     </table>
 </div>
+
+<app-footer></app-footer>

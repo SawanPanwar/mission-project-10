@@ -5,8 +5,7 @@ import { ServiceLocatorService } from '../service-locator.service';
 
 @Component({
   selector: 'app-subject',
-  templateUrl: './subject.component.html',
-  styleUrls: ['./subject.component.css']
+  templateUrl: './subject.component.html'
 })
 export class SubjectComponent extends BaseCtl {
 

@@ -13,43 +13,43 @@ import com.rays.dto.FacultyDTO;
 
 public class FacultyForm extends BaseForm {
 
-	@NotEmpty(message = "please enter first name")
+	@NotEmpty(message = "First Name is required")
 	private String firstName;
 
-	@NotEmpty(message = "please enter last name")
+	@NotEmpty(message = "Last Name is required")
 	private String lastName;
 
 	@NotNull(message = "Date of birth is required")
 	private Date dob;
 
-	@NotEmpty(message = "please enter gender")
+	@NotEmpty(message = "Gender is required")
 	private String gender;
 
-	@NotNull(message = "please enter phone")
+	@NotNull(message = "Phone No is required")
 	@Pattern(regexp = "(^$|[0-9]{10})")
 	private String phoneNo;
 
-	@NotEmpty(message = "please enter email")
+	@NotEmpty(message = "Email ID is required")
 	private String email;
 
-	@NotEmpty(message = "please enter qualification")
+	@NotEmpty(message = "Qualification is required")
 	private String qualification;
 
-	@NotNull(message = "please enter college")
+	@NotNull(message = "College is required")
 	@Min(1)
-	private long collegeId;
+	private Long collegeId = 0L;
 
 	private String collegeName;
 
-	@NotNull(message = "please enter course")
+	@NotNull(message = "Course is required")
 	@Min(1)
-	private long courseId;
+	private Long courseId = 0L;
 
 	private String courseName;
 
-	@NotNull(message = "please enter subject")
+	@NotNull(message = "Subject is required")
 	@Min(1)
-	private long subjectId;
+	private Long subjectId = 0L;
 
 	private String subjectName;
 

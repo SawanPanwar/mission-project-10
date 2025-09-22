@@ -13,10 +13,10 @@ public class RoleForm extends BaseForm {
 	public static final int FACULTY = 3;
 	public static final int KIOSK = 4;
 
-	@NotEmpty(message = "please enter name")
+	@NotEmpty(message = "Name is required")
 	private String name;
 
-	@NotEmpty(message = "please enter description")
+	@NotEmpty(message = "Description is required")
 	private String description;
 
 	public String getName() {

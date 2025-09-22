@@ -38,7 +38,7 @@ public class LoginCtl extends BaseCtl<UserForm, UserDTO, UserServiceInt> {
 
 		if (dto == null) {
 			res.setSuccess(false);
-			res.addMessage("Invalid ID or Password");
+			res.addMessage("Invalid Login ID & Password");
 		} else {
 			UserContext context = new UserContext(dto);
 
