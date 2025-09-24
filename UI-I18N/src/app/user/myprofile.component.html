@@ -1,0 +1,66 @@
+<app-navbar></app-navbar>
+
+<div align="center">
+    <h1 align="center" style="margin-bottom: 5px; color: navy">My Profile</h1>
+
+    <div style="height: 20px; margin-bottom: 10px; text-align: center;">
+        <h3 style="margin: 0; color: green;" *ngIf="!form.error && form.message">{{ form.message }}</h3>
+        <h3 style="margin: 0; color: red;" *ngIf="form.error && form.message">{{ form.message }}</h3>
+    </div>
+
+    <table>
+        <tr>
+            <th align="left">First Name<span style="color: red">*</span></th>
+            <td><input type="text" name="firstName" [(ngModel)]="form.data.firstName" placeholder="Enter First Name"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.firstName}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">Last Name<span style="color: red">*</span></th>
+            <td><input type="text" name="lastName" [(ngModel)]="form.data.lastName" placeholder="Enter Last Name"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.lastName}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">Login Id<span style="color: red">*</span></th>
+            <td><input type="text" name="loginId" [(ngModel)]="form.data.loginId" readonly placeholder="Enter Login ID"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.loginId}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">Date of Birth<span style="color: red">*</span></th>
+            <td><input type="date" name="dob" [(ngModel)]="form.data.dob" [ngModel]="form.data.dob | date:'yyyy-MM-dd'" placeholder="Select Date of Birth" style="width: 97%;"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.dob}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">Gender<span style="color: red">*</span></th>
+            <td>
+                <select name="gender" [(ngModel)]="form.data.gender" style="width: 170px;">
+                    <option value="">------------Select------------</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </td>
+            <td style="position: fixed; color: red;">{{form.inputerror.gender}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">Mobile<span style="color: red">*</span></th>
+            <td><input type="text" name="phone" [(ngModel)]="form.data.phone" maxlength="10" placeholder="Enter Mobile No."></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.phone}}</td>
+        </tr>
+
+        <tr></tr>
+
+        <tr>
+            <th></th>
+            <td align="left" colspan="2">
+                <button (click)="myProfile()">save</button> &nbsp;
+                <button (click)="forward('/userlist')">list</button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<app-footer></app-footer>

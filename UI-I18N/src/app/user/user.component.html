@@ -1,0 +1,102 @@
+<app-navbar></app-navbar>
+
+<div align="center">
+    <h1 *ngIf="!form.data.id" align="center" style="margin-bottom: 5px; color: navy">{{ 'UserForm.AddUser' | translate }}</h1>
+    <h1 *ngIf="form.data.id>0" align="center" style="margin-bottom: 5px; color: navy">{{ 'UserForm.UpdateUser' | translate }}</h1>
+
+    <div style="height: 20px; margin-bottom: 10px; text-align: center;">
+        <h3 style="margin: 0; color: green;" *ngIf="!form.error && form.message">{{ form.message }}</h3>
+        <h3 style="margin: 0; color: red;" *ngIf="form.error && form.message">{{ form.message }}</h3>
+    </div>
+
+    <table>
+        <tr>
+            <th align="left">{{ 'UserForm.FirstName' | translate }}<span style="color: red">*</span></th>
+            <td><input type="text" name="firstName" [(ngModel)]="form.data.firstName" placeholder="{{ 'UserForm.Placeholders.FirstName' | translate }}"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.firstName}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">{{ 'UserForm.LastName' | translate }}<span style="color: red">*</span></th>
+            <td><input type="text" name="lastName" [(ngModel)]="form.data.lastName" placeholder="{{ 'UserForm.Placeholders.LastName' | translate }}"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.lastName}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">{{ 'UserForm.LoginId' | translate }}<span style="color: red">*</span></th>
+            <td><input type="text" name="loginId" [(ngModel)]="form.data.loginId" placeholder="{{ 'UserForm.Placeholders.LoginId' | translate }}"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.loginId}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">{{ 'UserForm.Password' | translate }}<span style="color: red">*</span></th>
+            <td><input type="password" name="password" [(ngModel)]="form.data.password" placeholder="{{ 'UserForm.Placeholders.Password' | translate }}"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.password}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">{{ 'UserForm.DateOfBirth' | translate }}<span style="color: red">*</span></th>
+            <td><input type="date" name="dob" [(ngModel)]="form.data.dob" [ngModel]="form.data.dob | date:'yyyy-MM-dd'" placeholder="{{ 'UserForm.Placeholders.DateOfBirth' | translate }}" style="width: 97%;"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.dob}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">{{ 'UserForm.Gender' | translate }}<span style="color: red">*</span></th>
+            <td>
+                <select name="gender" [(ngModel)]="form.data.gender" style="width: 170px;">
+                    <option value="undefined">{{ 'UserForm.SelectOptions.Select' | translate }}</option>
+                    <option value="Male">{{ 'UserForm.SelectOptions.Male' | translate }}</option>
+                    <option value="Female">{{ 'UserForm.SelectOptions.Female' | translate }}</option>
+                </select>
+            </td>
+            <td style="position: fixed; color: red;">{{form.inputerror.gender}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">{{ 'UserForm.Role' | translate }}<span style="color: red">*</span></th>
+            <td>
+                <select name="roleId" [(ngModel)]="form.data.roleId" style="width: 170px;">
+                    <option value="undefined">{{ 'UserForm.SelectOptions.Select' | translate }}</option>
+                    <option *ngFor="let obj of form.preload.roleList" [value]="obj.key">{{obj.value}}</option>
+                </select>
+            </td>
+            <td style="position: fixed; color: red;">{{form.inputerror.roleId}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">{{ 'UserForm.Mobile' | translate }}<span style="color: red">*</span></th>
+            <td><input type="text" name="phone" [(ngModel)]="form.data.phone" maxlength="10" placeholder="{{ 'UserForm.Placeholders.Mobile' | translate }}"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.phone}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">{{ 'UserForm.AlternateMobile' | translate }}<span style="color: red">*</span></th>
+            <td><input type="text" name="alternateMobile" [(ngModel)]="form.data.alternateMobile" maxlength="10" placeholder="{{ 'UserForm.Placeholders.AlternateMobile' | translate }}"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.alternateMobile}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">{{ 'UserForm.Status' | translate }}<span style="color: red">*</span></th>
+            <td>
+                <select name="status" [(ngModel)]="form.data.status" style="width: 170px;">
+                    <option value="undefined">{{ 'UserForm.SelectOptions.Select' | translate }}</option>
+                    <option value="Active">{{ 'UserForm.SelectOptions.Active' | translate }}</option>
+                    <option value="Inactive">{{ 'UserForm.SelectOptions.Inactive' | translate }}</option>
+                </select>
+            </td>
+            <td style="position: fixed; color: red;">{{form.inputerror.status}}</td>
+        </tr>
+
+        <tr></tr>
+
+        <tr>
+            <th></th>
+            <td align="left" colspan="2">
+                <button (click)="submit()">{{ 'UserForm.Buttons.Save' | translate }}</button> &nbsp;
+                <button (click)="forward('/userlist')">{{ 'UserForm.Buttons.List' | translate }}</button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<app-footer></app-footer>

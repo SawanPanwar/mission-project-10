@@ -189,6 +189,11 @@ public class UserDTO extends BaseDTO {
 	public String getLabel() {
 		return "Login Id";
 	}
+	
+	@Override
+	public String getTableName() {
+		return "User";
+	}
 
 	@Override
 	public String getValue() {

@@ -90,6 +90,11 @@ public class MarksheetDTO extends BaseDTO {
 	public String getLabel() {
 		return "Roll No";
 	}
+	
+	@Override
+	public String getTableName() {
+		return "Marksheet";
+	}
 
 	@Override
 	public String getValue() {

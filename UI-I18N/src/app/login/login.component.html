@@ -1,0 +1,47 @@
+<app-navbar></app-navbar>
+
+<div align="center">
+
+    <h1 align="center" style="margin-bottom: 5px; color: navy">{{'Login' | translate}}</h1>
+
+    <div style="height: 20px; margin-bottom: 10px; text-align: center;">
+        <h3 style="margin: 0; color: green;" *ngIf="!form.error && form.message">{{ form.message }}</h3>
+        <h3 style="margin: 0; color: red;" *ngIf="form.error && form.message">{{ form.message }}</h3>
+    </div>
+
+    <table>
+        <tr>
+            <th align="left">{{'Login Id' | translate}}<span style="color: red">*</span></th>
+            <td><input type="text" name="loginId" [(ngModel)]="form.data.loginId" placeholder="Enter Login ID"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.loginId}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">{{'Password' | translate}}<span style="color: red">*</span></th>
+            <td><input type="password" name="password" [(ngModel)]="form.data.password" placeholder="Enter Password"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.password}}</td>
+        </tr>
+
+        <tr></tr>
+
+        <tr>
+            <th></th>
+            <td colspan="2">
+                <button (click)="signIn()">{{'Sign In' | translate}}</button>&nbsp;
+                <button (click)="signUp()">{{'Sign Up' | translate}}</button>
+            </td>
+        </tr>
+
+        <tr>
+            <th></th>
+            <td></td>
+        </tr>
+
+        <tr>
+            <th></th>
+            <td><a [routerLink]="['/forgotpassword']"><b>{{'Forget my password?' | translate}}</b></a>&nbsp;</td>
+        </tr>
+    </table>
+</div>
+
+<app-footer></app-footer>

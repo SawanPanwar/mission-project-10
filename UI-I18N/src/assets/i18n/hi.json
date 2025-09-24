@@ -1,0 +1,93 @@
+{
+    "Login": "लॉगिन",
+    "Sign In": "साइन इन",
+    "Sign Up": "साइन अप",
+    "Forget my password?": "क्या आप अपना पासवर्ड भूल गए?",
+    "Login Id": "लॉगिन",
+    "Password": "पासवर्ड",
+    "UserRegistration": "उपयोगकर्ता पंजीकरण",
+    "FirstName": "पहला नाम",
+    "LastName": "अंतिम नाम",
+    "LoginId": "लॉगिन आईडी",
+    "Password": "पासवर्ड",
+    "DateOfBirth": "जन्म तिथि",
+    "Gender": "लिंग",
+    "Mobile": "मोबाइल",
+    "Buttons": {
+        "SignUp": "साइन अप",
+        "Reset": "रीसेट"
+    },
+    "GenderOptions": {
+        "Select": "------------चुनें------------",
+        "Male": "पुरुष",
+        "Female": "महिला"
+    },
+    "Greetings": {
+        "HiUser": "नमस्ते, {{name}} ( {{role}} )",
+        "HiGuest": "नमस्ते, अतिथि"
+    },
+    "Links": {
+        "MyProfile": "मेरा प्रोफ़ाइल",
+        "ChangePassword": "पासवर्ड बदलें",
+        "AddUser": "उपयोगकर्ता जोड़ें",
+        "UserList": "उपयोगकर्ता सूची",
+        "AddRole": "भूमिका जोड़ें",
+        "RoleList": "भूमिका सूची",
+        "AddCollege": "कॉलेज जोड़ें",
+        "CollegeList": "कॉलेज सूची",
+        "AddStudent": "छात्र जोड़ें",
+        "StudentList": "छात्र सूची",
+        "AddMarksheet": "मार्कशीट जोड़ें",
+        "MarksheetList": "मार्कशीट सूची",
+        "AddCourse": "कोर्स जोड़ें",
+        "CourseList": "कोर्स सूची",
+        "AddSubject": "विषय जोड़ें",
+        "SubjectList": "विषय सूची",
+        "AddTimetable": "टाइमटेबल जोड़ें",
+        "TimetableList": "टाइमटेबल सूची",
+        "AddFaculty": "फैकल्टी जोड़ें",
+        "FacultyList": "फैकल्टी सूची",
+        "Logout": "लॉगआउट",
+        "Dashboard": "डैशबोर्ड",
+        "Login": "लॉगिन"
+    },
+    "LocaleSelect": {
+        "Select": "-------चुनें-------",
+        "English": "अंग्रेज़ी",
+        "Hindi": "हिंदी"
+    },
+    "UserForm": {
+        "AddUser": "उपयोगकर्ता जोड़ें",
+        "UpdateUser": "उपयोगकर्ता अपडेट करें",
+        "FirstName": "पहला नाम",
+        "LastName": "अंतिम नाम",
+        "LoginId": "लॉगिन आईडी",
+        "Password": "पासवर्ड",
+        "DateOfBirth": "जन्म तिथि",
+        "Gender": "लिंग",
+        "Role": "भूमिका",
+        "Mobile": "मोबाइल",
+        "AlternateMobile": "वैकल्पिक मोबाइल",
+        "Status": "स्थिति",
+        "Placeholders": {
+            "FirstName": "पहला नाम दर्ज करें",
+            "LastName": "अंतिम नाम दर्ज करें",
+            "LoginId": "लॉगिन आईडी दर्ज करें",
+            "Password": "पासवर्ड दर्ज करें",
+            "DateOfBirth": "जन्म तिथि चुनें",
+            "Mobile": "मोबाइल नंबर दर्ज करें",
+            "AlternateMobile": "वैकल्पिक मोबाइल नंबर दर्ज करें"
+        },
+        "SelectOptions": {
+            "Select": "------------चुनें------------",
+            "Male": "पुरुष",
+            "Female": "महिला",
+            "Active": "सक्रिय",
+            "Inactive": "निष्क्रिय"
+        },
+        "Buttons": {
+            "Save": "सहेजें",
+            "List": "सूची"
+        }
+    }
+}

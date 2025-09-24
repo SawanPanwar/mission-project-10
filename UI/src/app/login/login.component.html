@@ -27,8 +27,7 @@
         <tr>
             <th></th>
             <td colspan="2">
-                <button (click)="signIn()">Sign In</button>
-                &nbsp;
+                <button (click)="signIn()">Sign In</button>&nbsp;
                 <button (click)="signUp()">Sign Up</button>
             </td>
         </tr>
@@ -40,7 +39,7 @@
 
         <tr>
             <th></th>
-            <td><a href="#"><b>Forget my password?</b></a>&nbsp;</td>
+            <td><a [routerLink]="['/forgotpassword']"><b>Forget my password?</b></a>&nbsp;</td>
         </tr>
     </table>
 </div>

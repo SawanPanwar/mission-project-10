@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HttpServiceService } from './http-service.service';
 import { EndpointServiceService } from './endpoint-service.service';
 import { ServiceLocatorService } from './service-locator.service';
@@ -33,6 +33,9 @@ import { CourseListComponent } from './course/course-list.component';
 import { SubjectListComponent } from './subject/subject-list.component';
 import { TimetableListComponent } from './timetable/timetable-list.component';
 import { FacultyListComponent } from './faculty/faculty-list.component';
+import { MyprofileComponent } from './user/myprofile.component';
+import { ChangepasswordComponent } from './user/changepassword.component';
+import { ForgotpasswordComponent } from './login/forgotpassword.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +62,10 @@ import { FacultyListComponent } from './faculty/faculty-list.component';
     CourseListComponent,
     SubjectListComponent,
     TimetableListComponent,
-    FacultyListComponent
+    FacultyListComponent,
+    MyprofileComponent,
+    ChangepasswordComponent,
+    ForgotpasswordComponent
   ],
   imports: [
     BrowserModule,

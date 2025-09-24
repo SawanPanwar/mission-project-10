@@ -1,0 +1,58 @@
+<table>
+    <tr>
+        <td width="90%">
+            <a [routerLink]="['/welcome']"><b>Welcome</b></a> |
+            <a *ngIf="!isLogin()" [routerLink]="['/login']"><b>{{ 'Links.Login' | translate }}</b></a>
+            <a *ngIf="isLogin()" (click)="logout()"><font color="blue"><b>{{ 'Links.Logout' | translate }}</b></font></a> |
+            <select #locale (change)="changeLocale(locale.value)">
+                <option value="0">{{ 'LocaleSelect.Select' | translate }}</option>
+                <option value="en">{{ 'LocaleSelect.English' | translate }}</option>
+                <option value="hi">{{ 'LocaleSelect.Hindi' | translate }}</option>
+            </select>
+        </td>
+        <td rowspan="2">
+            <h1 align="Right">
+                <img src="../../assets/img/customLogo.jpg" width="312" height="85">
+            </h1>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <h3 *ngIf="isLogin()">
+                <b>{{ 'Greetings.HiUser' | translate:{name: form.data.fname, role: form.data.role} }}</b>
+            </h3>
+            <h3 *ngIf="!isLogin()">
+                {{ 'Greetings.HiGuest' | translate }}
+            </h3>
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2">
+            <div *ngIf="isLogin()">
+                <a (click)="forward()"><b>{{ 'Links.MyProfile' | translate }}</b></a> |
+                <a [routerLink]="['/changepassword']"><b>{{ 'Links.ChangePassword' | translate }}</b></a> |
+                <a [routerLink]="['/user']"><b>{{ 'Links.AddUser' | translate }}</b></a> |
+                <a [routerLink]="['/userlist']"><b>{{ 'Links.UserList' | translate }}</b></a> |
+                <a [routerLink]="['/role']"><b>{{ 'Links.AddRole' | translate }}</b></a> |
+                <a [routerLink]="['/rolelist']"><b>{{ 'Links.RoleList' | translate }}</b></a> |
+                <a [routerLink]="['/college']"><b>{{ 'Links.AddCollege' | translate }}</b></a> |
+                <a [routerLink]="['/collegelist']"><b>{{ 'Links.CollegeList' | translate }}</b></a> |
+                <a [routerLink]="['/student']"><b>{{ 'Links.AddStudent' | translate }}</b></a> |
+                <a [routerLink]="['/studentlist']"><b>{{ 'Links.StudentList' | translate }}</b></a> |
+                <a [routerLink]="['/marksheet']"><b>{{ 'Links.AddMarksheet' | translate }}</b></a> |
+                <a [routerLink]="['/marksheetlist']"><b>{{ 'Links.MarksheetList' | translate }}</b></a> |
+                <a [routerLink]="['/course']"><b>{{ 'Links.AddCourse' | translate }}</b></a> |
+                <a [routerLink]="['/courselist']"><b>{{ 'Links.CourseList' | translate }}</b></a> |
+                <a [routerLink]="['/subject']"><b>{{ 'Links.AddSubject' | translate }}</b></a> |
+                <a [routerLink]="['/subjectlist']"><b>{{ 'Links.SubjectList' | translate }}</b></a> |
+                <a [routerLink]="['/timetable']"><b>{{ 'Links.AddTimetable' | translate }}</b></a> |
+                <a [routerLink]="['/timetablelist']"><b>{{ 'Links.TimetableList' | translate }}</b></a> |
+                <a [routerLink]="['/faculty']"><b>{{ 'Links.AddFaculty' | translate }}</b></a> |
+                <a [routerLink]="['/facultylist']"><b>{{ 'Links.FacultyList' | translate }}</b></a> |
+            </div>
+        </td>
+    </tr>
+</table>
+<hr>

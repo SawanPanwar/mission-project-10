@@ -169,6 +169,11 @@ public class FacultyDTO extends BaseDTO {
 	public String getLabel() {
 		return "Email";
 	}
+	
+	@Override
+	public String getTableName() {
+		return "Faculty";
+	}
 
 	@Override
 	public String getValue() {
