@@ -1,0 +1,76 @@
+pipeline {
+    agent any
+    
+    environment {
+        PROJECT_NAME = "orsproject-10"
+        TOMCAT_WEBAPPS = "path\\apache-tomcat-9.0.104\\webapps"
+        TOMCAT_SERVICE = "Tomcat9"   // apna service name confirm kar lena
+    }
+
+    stages {
+
+        stage('Clone Repository') {
+            steps {
+                git branch: 'main', url: 'https://github.com/abc/orsproject-10.git'
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                bat 'npm install'
+            }
+        }
+
+        stage('Build Angular Project') {
+            steps {
+                bat "npx ng build --base-href /%PROJECT_NAME%/"
+            }
+        }
+
+        stage('Deploy to Tomcat') {
+            steps {
+                bat """
+                echo Cleaning old deployment...
+
+                if exist "%TOMCAT_WEBAPPS%\\%PROJECT_NAME%" (
+                    rmdir /s /q "%TOMCAT_WEBAPPS%\\%PROJECT_NAME%"
+                )
+
+                echo Copying new build...
+
+                xcopy "dist\\%PROJECT_NAME%" "%TOMCAT_WEBAPPS%\\%PROJECT_NAME%" /E /I /Y
+                """
+            }
+        }
+
+        stage('Start / Restart Tomcat') {
+            steps {
+                bat """
+                echo Checking Tomcat Service...
+
+                sc query "%TOMCAT_SERVICE%" | find "RUNNING"
+                if %errorlevel%==0 (
+                    echo Tomcat is running. Restarting...
+                    net stop "%TOMCAT_SERVICE%"
+                    ping 127.0.0.1 -n 6 > nul
+                    net start "%TOMCAT_SERVICE%"
+                ) else (
+                    echo Tomcat is not running. Starting...
+                    net start "%TOMCAT_SERVICE%"
+                )
+
+                echo Tomcat Ready!
+                """
+            }
+        }
+    }
+
+    post {
+        success {
+            echo '✅ Build & Deployment Successful!'
+        }
+        failure {
+            echo '❌ Build Failed!'
+        }
+    }
+}
