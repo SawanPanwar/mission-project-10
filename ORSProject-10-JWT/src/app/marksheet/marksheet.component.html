@@ -1,0 +1,61 @@
+<app-navbar></app-navbar>
+
+<div align="center">
+    <h1 *ngIf="!form.data.id" align="center" style="margin-bottom: 5px; color: navy">Add Marksheet</h1>
+    <h1 *ngIf="form.data.id>0" align="center" style="margin-bottom: 5px; color: navy">Update Marksheet</h1>
+
+    <div style="height: 20px; margin-bottom: 10px; text-align: center;">
+        <h3 style="margin: 0; color: green;" *ngIf="!form.error && form.message">{{ form.message }}</h3>
+        <h3 style="margin: 0; color: red;" *ngIf="form.error && form.message">{{ form.message }}</h3>
+    </div>
+
+    <table>
+        <tr>
+            <th align="left">Roll No<span style="color: red">*</span></th>
+            <td><input type="text" name="rollNo" [(ngModel)]="form.data.rollNo" maxlength="5" placeholder="Enter Roll No"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.rollNo}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">Name<span style="color: red">*</span></th>
+            <td>
+                <select name="studentId" [(ngModel)]="form.data.studentId" style="width: 170px;">
+                    <option value="undefined">------------Select------------</option>
+                    <option *ngFor="let obj of form.preload.studentList" [value]="obj.key">{{obj.value}}</option>
+                </select>
+            </td>
+            <td style="position: fixed; color: red;">{{form.inputerror.studentId}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">Physics<span style="color: red">*</span></th>
+            <td><input type="text" name="physics" [(ngModel)]="form.data.physics" maxlength="3" placeholder="Enter Physics Marks"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.physics}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">Chemistry<span style="color: red">*</span></th>
+            <td><input type="text" name="chemistry" [(ngModel)]="form.data.chemistry" maxlength="3" placeholder="Enter Chemistry Marks"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.chemistry}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">Maths<span style="color: red">*</span></th>
+            <td><input type="text" name="maths" [(ngModel)]="form.data.maths" maxlength="3" placeholder="Enter Maths Marks"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.maths}}</td>
+        </tr>
+
+        <tr></tr>
+
+        <tr>
+            <th></th>
+            <td align="left" colspan="2">
+                <button (click)="submit()">save</button> &nbsp;
+                <button (click)="forward('marksheetlist')">list</button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<app-footer></app-footer>
+

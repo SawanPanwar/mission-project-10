@@ -1,0 +1,100 @@
+<app-navbar></app-navbar>
+
+<div align="center">
+    <h1 *ngIf="!form.data.id" align="center" style="margin-bottom: 5px; color: navy">Add Timetable</h1>
+    <h1 *ngIf="form.data.id>0" align="center" style="margin-bottom: 5px; color: navy">Update Timetable</h1>
+
+    <div style="height: 20px; margin-bottom: 10px; text-align: center;">
+        <h3 style="margin: 0; color: green;" *ngIf="!form.error && form.message">{{ form.message }}</h3>
+        <h3 style="margin: 0; color: red;" *ngIf="form.error && form.message">{{ form.message }}</h3>
+    </div>
+
+    <table>
+        <tr>
+            <th align="left">Course<span style="color: red">*</span></th>
+            <td>
+                <select name="courseId" [(ngModel)]="form.data.courseId" style="width: 170px;">
+                    <option value="undefined">------------Select------------</option>
+                    <option *ngFor="let obj of form.preload.courseList" [value]="obj.key">{{obj.value}}</option>
+                </select>
+            </td>
+            <td style="position: fixed; color: red;">{{form.inputerror.courseId}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">Subject<span style="color: red">*</span></th>
+            <td>
+                <select name="subjectId" [(ngModel)]="form.data.subjectId" style="width: 170px;">
+                    <option value="undefined">------------Select------------</option>
+                    <option *ngFor="let obj of form.preload.subjectList" [value]="obj.key">{{obj.value}}</option>
+                </select>
+            </td>
+            <td style="position: fixed; color: red;">{{form.inputerror.subjectId}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">Semester<span style="color: red">*</span></th>
+            <td>
+                <select name="semester" [(ngModel)]="form.data.semester" style="width: 170px;">
+                    <option value="undefined">------------Select------------</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                </select>
+            </td>
+            <td style="position: fixed; color: red;">{{form.inputerror.semester}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">Exam Date<span style="color: red">*</span></th>
+            <td><input type="date" name="examDate" [(ngModel)]="form.data.examDate" [ngModel]="form.data.examDate | date:'yyyy-MM-dd'" placeholder="Select Exam Date" style="width: 97%;"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.examDate}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">Exam Time<span style="color: red">*</span></th>
+            <td>
+                <select name="examTime" [(ngModel)]="form.data.examTime" style="width: 170px;">
+                    <option value="undefined">------------Select------------</option>
+                    <option value="08:00 AM to 11:00 AM">08:00 AM to 11:00 AM</option>
+                    <option value="12:00 PM to 03:00 PM">12:00 PM to 03:00 PM</option>
+                    <option value="04:00 PM to 07:00 PM">04:00 PM to 07:00 PM</option>
+                </select>
+            </td>
+            <td style="position: fixed; color: red;">{{form.inputerror.examTime}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">
+                Description<span style="color: red">*</span>
+            </th>
+            <td align="center">
+                <textarea 
+                    style="width: 165px; resize: none;" 
+                    name="description" 
+                    [(ngModel)]="form.data.description"
+                    rows="3" 
+                    placeholder="Enter Short description">
+                </textarea>
+            </td>
+            <td style="position: fixed; color: red;">{{form.inputerror.description}}</td>
+        </tr>
+
+        <tr></tr>
+
+        <tr>
+            <th></th>
+            <td align="left" colspan="2">
+                <button (click)="submit()">save</button> &nbsp;
+                <button (click)="forward('timetablelist')">list</button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<app-footer></app-footer>

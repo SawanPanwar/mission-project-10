@@ -1,0 +1,70 @@
+<app-navbar></app-navbar>
+
+<div align="center">
+    <h1 align="center" style="margin-bottom: 5px; color: navy">{{ 'UserRegistration' | translate }}</h1>
+
+    <div style="height: 20px; margin-bottom: 10px; text-align: center;">
+        <h3 style="margin: 0; color: green;" *ngIf="!form.error && form.message">{{ form.message }}</h3>
+        <h3 style="margin: 0; color: red;" *ngIf="form.error && form.message">{{ form.message }}</h3>
+    </div>
+
+    <table>
+        <tr>
+            <th align="left">{{ 'FirstName' | translate }}<span style="color: red">*</span></th>
+            <td><input type="text" name="firstName" [(ngModel)]="form.data.firstName" placeholder="Enter First Name"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.firstName}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">{{ 'LastName' | translate }}<span style="color: red">*</span></th>
+            <td><input type="text" name="lastName" [(ngModel)]="form.data.lastName" placeholder="Enter Last Name"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.lastName}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">{{ 'LoginId' | translate }}<span style="color: red">*</span></th>
+            <td><input type="text" name="loginId" [(ngModel)]="form.data.loginId" placeholder="Enter Login ID"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.loginId}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">{{ 'Password' | translate }}<span style="color: red">*</span></th>
+            <td><input type="password" name="password" [(ngModel)]="form.data.password" placeholder="Enter Password"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.password}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">{{ 'DateOfBirth' | translate }}<span style="color: red">*</span></th>
+            <td><input type="date" name="dob" [(ngModel)]="form.data.dob" placeholder="Select Date of Birth" style="width: 97%;"></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.dob}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">{{ 'Gender' | translate }}<span style="color: red">*</span></th>
+            <td>
+                <select name="gender" [(ngModel)]="form.data.gender" style="width: 170px;">
+                    <option value="undefined">{{ 'GenderOptions.Select' | translate }}</option>
+                    <option value="Male">{{ 'GenderOptions.Male' | translate }}</option>
+                    <option value="Female">{{ 'GenderOptions.Female' | translate }}</option>
+                </select>
+            </td>
+            <td style="position: fixed; color: red;">{{form.inputerror.gender}}</td>
+        </tr>
+
+        <tr>
+            <th align="left">{{ 'Mobile' | translate }}<span style="color: red">*</span></th>
+            <td><input type="text" name="phone" [(ngModel)]="form.data.phone" maxlength="10" placeholder="Enter Mobile No."></td>
+            <td style="position: fixed; color: red;">{{form.inputerror.phone}}</td>
+        </tr>
+
+        <tr>
+            <th></th>
+            <td align="left" colspan="2">
+                <button (click)="signUp()">{{ 'Buttons.SignUp' | translate }}</button> &nbsp;
+                <button (click)="reset()">{{ 'Buttons.Reset' | translate }}</button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<app-footer></app-footer>
